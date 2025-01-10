@@ -62,3 +62,18 @@ while i <= j:
         j -= 1
 return result
 ```
+
+---
+
+### 4. 35 Search Insert Position
+Given a sorted array and a target, return index of target if target in array, or return index where target would be if target is not in array.  
+Need O(log n) time efficiency.  
+Do binary search for target, return index if target is found in nums, return **right** if target is not found.  
+This is because **right** will be the first item in the index that is bigger than target.
+
+---
+
+### 5. 34 Find First and Last Position of Element in Sorted Array
+Given a sorted array and a target. Return first and last position of target in the list. Return [-1, -1] if target not found in list.  
+Need O(log n) time efficiency.  
+Do binary search for target. If the target is found, move left and right from mid until the element is not target. Make sure to deal with **boundry condition** (break when pos_left move to -1 or pos_right move to len(nums)). Return [pos_left + 1, pos_right - 1]. Ruturn [-1, -1] if the target is not found.
