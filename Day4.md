@@ -130,4 +130,4 @@ while fast and fast.next:
         return cur
 return None
 ```
-**Note** Psuedocode is more concise and preferable.
+**Note** Psuedocode2 is more concise and preferable.
