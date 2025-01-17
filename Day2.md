@@ -77,6 +77,8 @@ else:
     return prefix_sum[right] - prefix_sum[left - 1]
 ```
 
+---
+
 ### 4. 开发商购买土地
 Given a matrix, find a split of two parts that minimizes the sum difference between two parts.  
 Setup a prefix sum matrix, store sum of upper left elements as prefix sum.  

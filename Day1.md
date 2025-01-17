@@ -23,6 +23,8 @@ while left < right:
 return -1  
 ```
 
+---
+
 ### 2. 27 Remove Element
 Remove all occurrences of val in nums. Return size of remaining array.  
 Two pointers:  
