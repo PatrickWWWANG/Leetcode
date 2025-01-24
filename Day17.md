@@ -126,3 +126,4 @@ list.sort() modifies original list and returns None.
 sorted(list) doesn't modify original list and returns a new list.  
 Set() removes duplicate but has random order.  
 Use float('-inf') to represent negative infinity in Python.  
+Can also use a pointer to previous node to compare.  
