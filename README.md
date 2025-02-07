@@ -25,3 +25,7 @@
 ### Day30 Backtracking Part 03
 ### Day31 Backtracking Part 04
 ### Day32 Greedy Part 01
+### Day34 Greedy Part 02
+### Day35 Greedy Part 03
+### Day36 Greedy Part 04
+### Day37 Greedy Part 05
