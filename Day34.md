@@ -92,6 +92,7 @@ When sorting height, must also sort equal height people by number of people at t
 Then iterate queue and rearrange based on number of people at the front of the queue.  
 
 ```
+Pseudocode:
 people.sort(key=lambda x: (-x[0], x[1]))
 
 for i in range(len(people)):
@@ -101,9 +102,19 @@ for i in range(len(people)):
     people[pos] = cur
 
 return people
+
+Pseudocode Using Insert:
+people.sort(key=lambda x: (-x[0], x[1]))
+out = []
+
+for person in people:
+    out.insert(person[1], person)
+
+return out
 ```
 **Note**  
 Note the usage of the sort method.  
 'Key' takes a function and pass each element to this function and use the return as the key of sorting.  
 'Key' can take a tuple to use as primary key, secondary key etc.  
 Note that we use (-x[0], x[1]) to indicate that we want to sort the primary key with reverse order and secondary key with normal order.  
+Use 'insert' can be more time efficient.  
