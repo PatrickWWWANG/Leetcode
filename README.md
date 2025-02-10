@@ -27,5 +27,5 @@
 ### Day32 Greedy Part 01
 ### Day33 Greedy Part 02
 ### Day34 Greedy Part 03
-### Day36 Greedy Part 04
-### Day37 Greedy Part 05
+### Day35 Greedy Part 04
+### Day36 Greedy Part 05
