@@ -29,3 +29,17 @@
 ### Day34 Greedy Part 03
 ### Day35 Greedy Part 04
 ### Day36 Greedy Part 05
+### Day37 Dynamic Programming Part 01
+### Day38 Dynamic Programming Part 02
+### Day39 Dynamic Programming Part 03
+### Day40 Dynamic Programming Part 04
+### Day41 Dynamic Programming Part 05
+### Day42 Dynamic Programming Part 06
+### Day43 Dynamic Programming Part 07
+### Day44 Dynamic Programming Part 08
+### Day45 Dynamic Programming Part 09
+### Day46 Dynamic Programming Part 10
+### Day47 Dynamic Programming Part 11
+### Day48 Dynamic Programming Part 12
+### Day49 Dynamic Programming Part 13
+### Day50 Dynamic Programming Part 14
