@@ -60,8 +60,8 @@ Use dp[nums[0]] += 1 bacause there is case nums[0] == 0, then we can have dp[0] 
 
 ### 3. 474 Ones and Zeros
 You are given an array of binary strings strs and two integers m and n. Return the size of the largest subset of strs such that there are at most m 0's and n 1's in the subset.  
-Use dynamic programming. This is a **Muptiple Kanpsack** problem.  
-We have item with **multiple** elements, and **multiple** knapsacks to constrain these element. Therefore we need a **multi-dimensional** dp array to handle this problem.  
+Use dynamic programming. This is a **Muptiple-dimensional Kanpsack** problem.  
+We have item with **multiple** elements, and **one knapsack with multiple dimensions** to constrain these element. Therefore we need a **multi-dimensional** dp array to handle this problem.  
 We use a 3-D dp array, with dimensions item, m, and n. Then, we compress it to 2-D dp array.  
 DP update is max between taking current str and not taking current string.  
 
