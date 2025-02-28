@@ -42,5 +42,5 @@
 ### Day49 Dynamic Programming Part 11
 ### Day50 Dynamic Programming Part 12
 ### Day51 Dynamic Programming Part 13
-### Day52 Dynamic Programming Part 14
-### Day53 Dynamic Programming Part 15
+### Day52 Monotone Stack Part 01
+### Day53 Monotone Stack Part 02
