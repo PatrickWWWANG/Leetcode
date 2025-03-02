@@ -59,6 +59,8 @@ return rain
 **Caution**  
 Since we need to take st[-1] after pop to find the left larger item, we have to add a judgement of st not empty in the while loop to prevent indexerror when st is empty after pop.  
 
+---
+
 ### 2. 84 Largest Rectangle in Histogram
 Given an array of integers heights representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.  
 This problem is similar to the reverse of previous problem.  
