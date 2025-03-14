@@ -53,3 +53,6 @@
 ### Day62 Graph Part07
 ### Day63 Graph Part08
 ### Day64 Graph Part09
+### Day65 Graph Part10
+### Day66 Graph Part11
+### Day67 Graph Part12
