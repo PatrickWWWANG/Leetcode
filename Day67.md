@@ -44,3 +44,12 @@ Use a dictionary to store the sum from firs element up until each position, then
 
 ## Linked List
 
+### 203 Remove Linked List Elements
+Since we may need to change head, we use a dummy head to make the algorithm simpler. Use a cur pointer, each time check the value of cur.next, redirect the next pointer if cur.next is target.  
+
+### 707 Design Linked List
+Initialize the linked list with head is None and size is 0. Be careful with the next pointers operation sequence, and be care of the edge case of empty linked list.  
+
+### 206 Reverse Linked List
+Use a temp pointer to store the next node before reversing arrow. Use pre and cur pointers to control the working ndoes. Be careful with the operation sequence.  
+
