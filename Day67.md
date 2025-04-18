@@ -66,3 +66,17 @@ Get the length of the two linked lists. Move the pointer on the longer linked li
 Check cycle: slow pointer and fast pointer, if they meet in iteartion, there is cycle.  
 Find start of cycle: linked list = l (head to start of cycle) + l1 (start of cycle to slow and fast meet) + l2 (slow and fast meet to start of cycle). l = k * (l1 + l2) + l2. Move two pointers together from head and meet point, they will meet at the start of cycle.  
 
+## Hash Table
+
+### 242 Valid Anagram
+Use a dict to store number of appearences of characters in s and subtract each appearence in t. Can use python ord() function to check the unicode int of the character. Can use a list rather than a dictionary as the hash map in this problem.  
+
+### 349 Intersection of Two Arrays
+Use set() method to remove duplicates and check if each item in set1 is also in set2. In python, can use list(set1 & set2) to find the intersection and output as a list.  
+
+### 202 Happy Number
+A number is not a happy number when the sum digit square appears twice in the loop. Store all sum digit square in a set. Return True when sum digit square is 1 and return False when sum digit square is already in the set.  
+
+### 1 Two Sum
+Use a dictionary to store (target - nums) : index when iterating the list. If a number is in the keys of the dictionary, we find the two numbers that sum to the target and can return the indexes.  
+
