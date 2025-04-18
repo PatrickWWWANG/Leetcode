@@ -53,3 +53,16 @@ Initialize the linked list with head is None and size is 0. Be careful with the 
 ### 206 Reverse Linked List
 Use a temp pointer to store the next node before reversing arrow. Use pre and cur pointers to control the working ndoes. Be careful with the operation sequence.  
 
+### 24 Swap Nodes in Pairs
+Use a dummy head to help processing the head node. Use first, second, temp pointers to control the working ndoes. Be careful with the operation sequence.  
+
+### 19 Remove Nth Node From End of List
+Use a dummy head to help processing the head node. Use pre, cur pointers to control the working ndoes. Move the cur by n step, and move pre and cur together till cur is at tail. Then delete pre.next by set pre.next to pre.next.next. Be careful with the operation sequence and pointer position.  
+
+### 160 Intersection of Two Linked Lists
+Get the length of the two linked lists. Move the pointer on the longer linked list forward such the remaining length is the same as the shorter linked list. Then move pointers on both linked lists togerther, stop when two pointers are equal.  
+
+### 142 Linked List Cycle II
+Check cycle: slow pointer and fast pointer, if they meet in iteartion, there is cycle.  
+Find start of cycle: linked list = l (head to start of cycle) + l1 (start of cycle to slow and fast meet) + l2 (slow and fast meet to start of cycle). l = k * (l1 + l2) + l2. Move two pointers together from head and meet point, they will meet at the start of cycle.  
+
