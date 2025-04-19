@@ -81,3 +81,14 @@ To further prune, return immediately when cur is larger than target (zero).
 ### 18 4Sum
 This problem is similar to 15 and we use two pointers method to solve. For this problem we use two layers of for loop to iterate two cur positions and then use left and right pointers. Sort the list before iteration is key to the solution.  
 
+## String
+
+### 344 Reverse String
+Use two pointers, swap elements from edge to middle. In reality, call list.reverse() directly.  
+
+### 541 Reverse String II
+Use a cur pointer to and process k elements after cur each time. Check with the length of the list and handle edge cases.  
+
+### Kamacoder 54 Substitute Number
+The trick is find the number of numbers in string, calculate the final length after subsititution, and use two pointers to fill the new string (in a list) from end to start.  
+
