@@ -66,3 +66,18 @@ A number is not a happy number when the sum digit square appears twice in the lo
 ### 1 Two Sum
 Use a dictionary to store (target - nums) : index when iterating the list. If a number is in the keys of the dictionary, we find the two numbers that sum to the target and can return the indexes.  
 
+### 454 4Sum II
+Iterate four lists together is O(n^4). Iterate first two, store the sum and count in a dictionary. Then iterate the remaining two lists, check if the target is in dictionary and increment the counter. Reduce time efficiency to O(n^2).  
+
+### 383 Ransom Note
+Almost the same as problem 242. Note that in this problem we add characters in magazine and subtract characters in ransom note. We may have unused letters from magazine and that is acceptable. Return False only when we have negative values.  
+
+### 15 3Sum
+Hash map and brute force are not appropriate for this problem because they are too time inefficient and hard to prune. Two pointer method works better for this problem.  
+Sort the list first. Make a cur pointer iterating through the list, set left and right pointers to cur + 1 and the last element. The target is 0 minus the cur element. If left + right is too big, move right pointer back one position. If too small, move left pointer forward one position. If meets target, record cur, left, right in output.  
+To remove duplicate, check each cur, if cur == cur - 1, continue to iterate the next element. Moreover, each time after we record a output, move left and right together, skip if the next left or right has the same value.  
+To further prune, return immediately when cur is larger than target (zero).  
+
+### 18 4Sum
+This problem is similar to 15 and we use two pointers method to solve. For this problem we use two layers of for loop to iterate two cur positions and then use left and right pointers. Sort the list before iteration is key to the solution.  
+
