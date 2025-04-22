@@ -116,3 +116,9 @@ Then, back to main function:
 4. Then, check **if** haystack[i] == needle[j], first check if j is at the end of needle. If so, match found, return i - len(needle) + 1 as the start index of match. If not at the end of needle, increment j += 1;  
 5. If no match found after the iteration, return -1.  
 
+### 459 Repeated Substring Pattern
+Method 1: Concat s + s, and find s in new ss[1:-1] (remove first and last element). If we can find s in ss[1:-1], s can be constructed by taking a substring of it and appending multiple copies of the substring together. Can use find function or KMP algorithm.  
+Method 2: Use the next array in KMP algorithm. Find the longest common prefix and postfix of s. If it is bigger than 0 and the difference between length of s and longest common prefix and postfix of s can divide length of s, then return True. The part of s not included in longest common prefix and postfix is the substring being repeated.  
+
+## Stack and Queue
+
