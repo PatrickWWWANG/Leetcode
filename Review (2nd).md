@@ -92,3 +92,26 @@ Use a cur pointer to and process k elements after cur each time. Check with the 
 ### Kamacoder 54 Substitute Number
 The trick is find the number of numbers in string, calculate the final length after subsititution, and use two pointers to fill the new string (in a list) from end to start.  
 
+### 151 Reverse Words in a String
+Use library function: split and reverse.  
+Detail realization: reverse the whole string, use slow and fast pointers to detect words, deal with blanks and reverse each word. Be careful when getting snippet from a string, i.e. string[slow : fast][::-1]. This is because string[fast - 1 : slow - 1 : -1] doesn't work as expected when slow == 0.  
+
+### Kamacoder 55 Rotating String
+Reverse the whole string. Cut the string into 2 parts. The first part is the n elements, the second part is the rest len(s) - n elements. Then reverse each part individually. We essentially rotate the last n elements to the start of the string.  
+
+### 28 Find the Index of the First Occurrence in a String
+Easy method is iterate over the haystack string and compare each snippet with needle, return the first match.  
+KMP Algorithm:  
+Firstly, construct a prefix array for the needle string:  
+1. Initialize next array as all zeros, j pointer = 0;  
+2. Iterate i pointer from 1 to the end of needle string;  
+3. **while** j > 0 and needle[i] != needle[j], set j = next[j - 1];  
+4. **if** needle[i] == needle[j], increment j += 1;  
+5. Set next[i] = j in each iteration step.  
+Then, back to main function:  
+1. Call function to get next array, and initialize i and j pointers to 0;  
+2. Iterate i from 0 to the end of haystack string;  
+3. In each step of iteration, **while** j > 0 and haystack[i] != needle[j], set j = next[j - 1];  
+4. Then, check **if** haystack[i] == needle[j], first check if j is at the end of needle. If so, match found, return i - len(needle) + 1 as the start index of match. If not at the end of needle, increment j += 1;  
+5. If no match found after the iteration, return -1.  
+
