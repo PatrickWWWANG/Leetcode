@@ -108,6 +108,7 @@ Firstly, construct a prefix array for the needle string:
 3. **while** j > 0 and needle[i] != needle[j], set j = next[j - 1];  
 4. **if** needle[i] == needle[j], increment j += 1;  
 5. Set next[i] = j in each iteration step.  
+
 Then, back to main function:  
 1. Call function to get next array, and initialize i and j pointers to 0;  
 2. Iterate i from 0 to the end of haystack string;  
