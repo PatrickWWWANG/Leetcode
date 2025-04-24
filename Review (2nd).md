@@ -134,3 +134,13 @@ Use a stack to solve. Each time encounter a left parentheses, push to stack. Oth
 ### 1047 Remove All Adjacent Duplicates In String
 Use a stack. If stack is not empty and the incoming element is the same as the top of the stack. Pop the top of stack and continue to next element. Otherwise, push the element to stack. Concat and output the remaining elements in the stack after the iteration.  
 
+### 150 Evaluate Reverse Polish Notation
+Maintain a stack. When encounter a number, push to stack. When encounter a symbol, pop two elements, do calculation, push back to stack.  
+
+### 239 Sliding Window Maximum
+Use a monotone decreasing (left to right) queue to solve the problem. Each time, the element at the exit of the queue is the maximum of the current window. For incoming element, pop element out from entrance if the incoming element is bigger than the last element in the queue. For out going element, if it equals to the element at the exit of the queue, pop the exit element. Maintain first k elements to the queue before iteration and append the exit element to the max list in each iteration.  
+
+### 347 Top K Frequent Elements
+Method 1 is brute force method: use a dictionary to store the frequency of each element. Use another dictionary to store a list of elements for each frequency. Make a list of the keys of the second dictionary, sort the list in reverse order, extend output list with each the elements of each frequency from the largest frequency. Return the the length of output list is k.  
+Method 2 uses min-heap (priority queue). Min-heap automatically put the incoming element to the right place, and each time it pops out the smallest item in the heap. We iterate the frequency dictionary, add tuple (frequency, element) to the min-heap. If the length of heap is bigger than k, we pop out the smallest item. Use heapq library.  
+
