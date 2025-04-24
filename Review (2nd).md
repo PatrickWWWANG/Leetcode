@@ -122,3 +122,15 @@ Method 2: Use the next array in KMP algorithm. Find the longest common prefix an
 
 ## Stack and Queue
 
+### 232 Implement Queue using Stacks
+Use 2 stacks (realized with deque()). Always push new elements to st1. When pop or peek, if st2 is not empty, simply return the top of st2, otherwise pop elements from st1 and push them to st2 until st1 is empty, then return the top of st2. Maintain a size variable to check empty easier.  
+
+### 225 Implement Stack using Queues
+Use 2 queues (realized with deque()). Always push new elements to que1. When pop, check if que1 has more than 1 elements, if so, popleft and push all element from que1 to que2 except the last one, then popleft and return the last element. If que1 is empty, then pop all elements form que2 to que1 except the last one, then popleft and return the last element. When peek, similar to pop, expect don't keep the last element, move all elements, and return the last element moved. Maintain a size variable to check empty easier.  
+
+### 20 Valid Parentheses
+Use a stack to solve. Each time encounter a left parentheses, push to stack. Otherwise, pop from the stack and check if the left parentheses is the counterpart of the right parentheses. If not, return False. Also, if the stack is empty when encountering a right parentheses or stack is not empty after iteration finishes, return False.  
+
+### 1047 Remove All Adjacent Duplicates In String
+Use a stack. If stack is not empty and the incoming element is the same as the top of the stack. Pop the top of stack and continue to next element. Otherwise, push the element to stack. Concat and output the remaining elements in the stack after the iteration.  
+
