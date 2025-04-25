@@ -144,3 +144,49 @@ Use a monotone decreasing (left to right) queue to solve the problem. Each time,
 Method 1 is brute force method: use a dictionary to store the frequency of each element. Use another dictionary to store a list of elements for each frequency. Make a list of the keys of the second dictionary, sort the list in reverse order, extend output list with each the elements of each frequency from the largest frequency. Return the the length of output list is k.  
 Method 2 uses min-heap (priority queue). Min-heap automatically put the incoming element to the right place, and each time it pops out the smallest item in the heap. We iterate the frequency dictionary, add tuple (frequency, element) to the min-heap. If the length of heap is bigger than k, we pop out the smallest item. Use heapq library.  
 
+## Binary Tree
+
+### 144 Binary Tree Preorder Traversal
+Root -> Root.left -> Root.right  
+
+### 94 Binary Tree Inorder Traversal
+Root.left -> Root -> Root.right  
+
+### 145 Binary Tree Postorder Traversal
+Root.left -> Root.right -> Root  
+
+### 102 Binary Tree Level Order Traversal
+Use a counter variable to store the number of variables in each level. Append level list to output list each time counter is decremented to 0.  
+
+### 107 Binary Tree Level Order Traversal II
+Use level order traversal to output a list from root to leaf, then reverse and return.  
+
+### 199 Binary Tree Right Side View
+Use level order traversal, append the last element of the current level to result each time counter == 0.  
+
+### 637 Average of Levels in Binary Tree
+Use level order traversal, append the average of the current level to result each time counter == 0.  
+
+### 589 N-ary Tree Preorder Traversal
+In traversal function, if the node has children, iterate the children and use recursion. Root -> Root.children.  
+
+### 590 N-ary Tree Postorder Traversal
+Root.children -> Root  
+
+### 429 N-ary Tree Level Order Traversal
+Instead of check node.left and node.right, simple extend node.children to que when node.children is not None.  
+
+### 515 Find Largest Value in Each Tree Row
+Use level order traversal, append the max value of the current level to result each time counter == 0.  
+
+### 116 Populating Next Right Pointers in Each Node
+Use level order traversal, set the next pointers of the elements of the current level each time counter == 0.  
+
+### 117 Populating Next Right Pointers in Each Node II
+Use level order traversal, set the next pointers of the elements of the current level each time counter == 0.  
+
+### 104 Maximum Depth of Binary Tree
+Use recursion. If node is None, return depth 0. Otherwise, return the max of left depth and right depth plus 1.  
+
+### 111 Minimum Depth of Binary Tree
+Use recursion. If node is None, return depth 0. If left depth == 0, return right depth + 1 because we need to reach the leaf (both left depth and right depth are 0). If right depth == 0, return left depth + 1. Otherwise, return the min of left depth and right depth plus 1.  
