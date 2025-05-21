@@ -218,3 +218,15 @@ Use recursion. Inorder is L-ROOT-R, postorder is L-R-ROOT. The last element in p
 ### 105 Construct Binary Tree form Preorder and Inorder Traversal
 Use recursion. Similar to 106, despite preorder is ROOT-L-R. So use first element of preorder as root.  
 
+### 654 Maximum Binary Tree
+Use recursion. Similar to 106. Only one array in this problem. Find the maximum as the root, then split nums to left and right.  
+
+### 617 Merge Two Binary Trees
+Use recursion. Deal with four conditions: not root1 + not root2, root1 + not root2, not root1 + root2, root1 + root2. When root1 + root2, generate a new root with val = root1.val + root2.val, then recursively process root.left and root.right.  
+
+### 700 Search in a Binary Search Tree
+Use recursion. If root value == val, return root; if root value < val and root has right, search right; if root value > val and root has left, search left. Otherwise return None.  
+
+### 98 Validate Binary Search Tree
+Use inorder traversal. When doing BST problems, remember inorder traversal of BST returns a sorted array. For this problem, inorder traversal the tree, and check if the result is sorted.  
+
