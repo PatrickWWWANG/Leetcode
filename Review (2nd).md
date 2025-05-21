@@ -190,3 +190,31 @@ Use recursion. If node is None, return depth 0. Otherwise, return the max of lef
 
 ### 111 Minimum Depth of Binary Tree
 Use recursion. If node is None, return depth 0. If left depth == 0, return right depth + 1 because we need to reach the leaf (both left depth and right depth are 0). If right depth == 0, return left depth + 1. Otherwise, return the min of left depth and right depth plus 1.  
+
+### 110 Balanced Binary Tree
+Use recursion. GetHeight function: return 0 if not node, return 1 + max(left, right) else. Balance function: return True if not node, return False if left and right height differs more than 1, then return left balance and right balance. Can include balance check into the getHeight function.  
+
+### 257 Binary Tree Paths
+Use DFS, record the path each time reach a leaf node.  
+
+### 404 Sum of Left Leaves
+Use DFS, when iterate to the parent, check if the parent node has a left node and if the left node is a leaf node, collect the value if so. Note that local variable of an integer is not mutable in subroutine call. Use mutable variables such as list, nonlocal variable, or self.variable.  
+
+### 222 Count Complete Tree Nodes
+Use DFS. We have equation for number of nodes in a perfect binary tree. In a complete binary tree, itself may not be perfect, but it is constructed by perfect subtrees. Check if the tree from root is perfect, return number of nodes if perfect, return 1 + search(left) + search(right) if the root tree is not perfect.  
+
+### 513 Find Bottom Left Tree Value
+Use level order traversal, only record the first node value of each layer, return the last recorded value.  
+
+### 112 Path Sum
+Use DFS with the current function. Check if the target sum equals node value at leaf nodes. In other nodes, subtract node value from target sum and search children. Return true or false at leaf nodes.  
+
+### 113 Path Sum II
+Use DFS, similar to 112. Need a dfs subroutine for this problem. Subroutine signature includes node, target sum, path, and result. Record a deep copy of path into result when target sum == node.val at leaf node. Append node value to path and subtract target sum at non-leaf nodes.  
+
+### 106 Construct Binary Tree from Inorder and Postorder Traversal
+Use recursion. Inorder is L-ROOT-R, postorder is L-R-ROOT. The last element in postorder must be root. Find the root in inorder, we can get the length of left and right. Split inorder and postorder into left part and right part, throw them into next layer of recursion.  
+
+### 105 Construct Binary Tree form Preorder and Inorder Traversal
+Use recursion. Similar to 106, despite preorder is ROOT-L-R. So use first element of preorder as root.  
+
