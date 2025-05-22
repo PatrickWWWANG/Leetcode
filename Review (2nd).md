@@ -259,3 +259,12 @@ Use reverse inorder traversal. Reverse inorder traversal R-ROOT-L of a BST gives
 
 ## Backtracking
 
+### 77 Combinations
+Use backtracking. Backtracking template: if (end condition), collect result and return. For (candidates), add candidate, recursion, backtrack by removing candidate. In this problem, end condition is len(path) == target length. We need a start index as the input of the backtracking function. For each item in the for loop, we add it to path, recursion, and pop it. To prune, we stop when the rest range is not big enough to fulfill the remaining length of path (k - len(path)). Therefore, range of start index is for i in range(index, n - (k - len(path)) + 2).  
+
+### 216 Combination Sum III
+Use backtracking. Similar to 77. In this problem we need an extra target input for the backtracking function to keep track of the sum of path. We also need new end conditions, which are length of path > k and target < 0. The pruning is similar to 77.  
+
+### 17 Letter Combinations of a Phone Number
+Use backtracking. This problem needs two for loops in the backtracking function. The first loops the length of digits. The second loops the corresponding letters for a digit.  
+
