@@ -268,3 +268,12 @@ Use backtracking. Similar to 77. In this problem we need an extra target input f
 ### 17 Letter Combinations of a Phone Number
 Use backtracking. This problem needs two for loops in the backtracking function. The first loops the length of digits. The second loops the corresponding letters for a digit.  
 
+### 39 Combination Sum
+Use backtracking. In this problem, we can reuse the elements in candidates. We still control for i in range(index, len(candidates)), because when we get to 3, we have done everything with 2. We don't want [2, 3] and [3, 2], they are duplicate. However, in backtracking we input backtracking(i) instead of backtracking(i + 1) because we can reuse candidates. Prune by sorting candidates and break the for loop at the first position we encounter diff < 0.  
+
+### 40 Combination Sum II
+Use backtracking. This problem doesn't allow repeat use of one element so need backtracking(i + 1). Remove duplicate is important. The key to remove duplicate is, when we have candidates[i] == candidates[i - 1], we need to remove duplicate if we are in the same tree layer, but keep the path if we are in a branch. Two methods: (1) Use a new used array to track the elements we used in a path, when candidates[i] == candidates[i - 1], if used[i - 1] is True, we are in a branch, keep it; if used[i - 1] is False, we are moving to the next iteration in the same layer, we need to skip this. (2) Also check i > index with candidates[i] == candidates[i - 1], because when we have multiple elements with same value, process and keep the path using the first element ensures we have no duplicate. Prune similar to 40. Continue when we need to process next element (remove duplicate), break when prune.  
+
+### 131 Palindrome Partitioning
+Use backtracking. We still need the start index input. We iteratively check each i, s[start : i], is a palindrome or not. If yes, we add s[start : i] to partition and set start to i in next recursion. Set to i because s[start : i] is open on the right end. If we have start == len(s), we reached a partition for the whole s string to palindromes, we can collect the result.  
+
