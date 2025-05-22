@@ -230,3 +230,32 @@ Use recursion. If root value == val, return root; if root value < val and root h
 ### 98 Validate Binary Search Tree
 Use inorder traversal. When doing BST problems, remember inorder traversal of BST returns a sorted array. For this problem, inorder traversal the tree, and check if the result is sorted.  
 
+### 530 Minimum Absolute Difference in BST
+Use inorder traversal with two pointers. When doing inorder traversal on the BST, we are getting elements in sorted order. Use a pointer to record the previous node, then we can calculate the difference and maintain a global minimum difference.  
+
+### 501 Find Mode in Binary Search Tree
+Use inorder traversal. Use a pre pointer to record previous value and a counter to count the frequency of the value. Maintain mode list and mode count for comparison.  
+
+### 236 Lowest Common Ancestor of a Binary Tree
+Use postorder traversal. For problem like this, we want to traversal the tree from bottom level to upper level. Postorder traversal is designed for traversal like this. We return node if the node is p or q. If a node only receives return value from one side, this node is not LCA, we pass the value up. If a node receives value from both sides, this node is the LCA node, we return the node.  
+
+### 235 Lowest Common Ancestor of a Binary Search Tree
+BST has the property of left subtree < root and right subtree > root. We can simple compare the root value with p and q, and keep going left or right. The first value we encounter that has value between p and q is the LCA we are looking for.  
+
+### 701 Insert into a Binary Search Tree
+BST has the property of left subtree < root and right subtree > root. We compare val with cur.val, and go to the corresponding direction. If the direction is None, we found the correct position to insert val node.  
+
+### 450 Delete Node in a BST
+Use recursion. Case analysis: (1)If the node to be deleted is a leaf, return None to parent; (2) If the node to be deleted has only one child, return the child to parent; (3)If the node to be deleted has two children, append left subtree to the leftmost position of right subtree, then return right subtree to parent. Recursion: Conduct the case analysis logic when root value equals to key. Call function to root.left or root.right according to the relationship between root value and key. Return root at the end to pass the current node after deletion to upper level. We don't need to record the parent node in this recursion. Recursion stack automatically keeps track of parent node for all nodes. Key not in BST case is also covered. The position for key was None, and is still None after search.  
+
+### 669 Trim a Binary Search Tree
+Use recursion. If the node is smaller that range, return self function call to node.right. If the node is bigger that range, return self function call to node.left. If the node is in the range, self function call node.left and node.right respectively and attach them to node.left and node.right, and return node. If use iteration, need 2 layers of while loops to trim all nodes.  
+
+### 108 Convert Sorted Array to Binary Search Tree
+Use recursion. For a height-balanced binary search tree, the root value is the median of the nums array. Find the median, set it as the root node, than recursively self function call to nums[left] and nums[right] as root.left and root.right. Return root in the end.  
+
+### 538 Convert BST to Greater Tree
+Use reverse inorder traversal. Reverse inorder traversal R-ROOT-L of a BST gives a reverse sorted array. Keep a running_sum to record sum of all elements bigger than current element in traversal. Change node.val according to the running sum.  
+
+## Backtracking
+
