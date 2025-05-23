@@ -277,3 +277,21 @@ Use backtracking. This problem doesn't allow repeat use of one element so need b
 ### 131 Palindrome Partitioning
 Use backtracking. We still need the start index input. We iteratively check each i, s[start : i], is a palindrome or not. If yes, we add s[start : i] to partition and set start to i in next recursion. Set to i because s[start : i] is open on the right end. If we have start == len(s), we reached a partition for the whole s string to palindromes, we can collect the result.  
 
+### 93 Restore IP Addresses
+Use backtracking. End condition is number of partition is 4 and start index is at the end of s. There are 3 pruning conditions: (1) if partition > 255, break; (2) if partition starts with 0 and length is bigger than 1, break; (3) if already 4 parts and index still not at the end, break.  
+
+### 78 Subsets
+Use backtracking. For this problem, instead of collect result at the end condition, we want to collect ALL nodes in the backtracking tree. Therefore, the first line of backtracking function should be collect result, regardless of end condition. The end condition is start index at the end of nums array, but we don't need to write it explicitly because for loop ends and function exits automatically when index at the end of nums array since we control the range of i in for loop.
+
+### 90 Subsets II
+Use backtracking. Collect subsets in each backtraking function call regardless of end condition, similar to 78. Remove duplicate (tree layer) similar to 40, use used array or i > index check.  
+
+### 491 Non-decreasing Subsequences
+Use backtracking. This problem requires preservation of original sequence, so we can't sort nums, while still need to remove duplicate. End condition is collect result as long as len(path) >= 2. Add nums[i] to path when len(path) > 0 and nums[i] >= path[-1]. To remove duplicate: (1) Maintain a set for each level, record the numbers used in this tree level, and continue is nums[i] is already in the set; (2) Check and continue if nums[i] in nums[index : i], which implies nums[i] is processed in this level. Note that used array doesn't work for this problem since we can't sort, so elements with same value may not appear next to each other.  
+
+### 46 Permutations
+Use backtracking. For permutation problems, order matters. Same elements in different order are considered as different paths in this problem. Therefore, start index is not required in this problem since we process the whole nums array each time. We need to prevent the element already in path from being added into path again. To do this, we can: (1) Maintain a used array to track elements in path; (2) Check and continue when nums[i] in path.  
+
+### 47 Permutations II
+Use backtracking. The collection of results is similar to 46. Remove duplicate in tree level is similar to 40. In this problem, we don't have start index since it's a permutation problem, so we have to use the used array method to remove duplicate. The i > start index mathod doesn't work for this problem.  
+
