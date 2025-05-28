@@ -310,3 +310,14 @@ Use 2-D backtracking. This problem is different from N-queens, because it needs 
 ### 282 Expression Add Operators
 Use backtracking. This problem is special on having multiple cases at each seaching position, so we need multiple recursive calls of backtracking function in each step. We check if num[index] is '0', if so, i can only be == index, we break when i > index. Then, we deal with the special case of index == 0, because we can't have an operator before first number, so only one recursive call here. For other cases, we make 3 recursive calls for +, -, and *. Note that the input of backtracking function includes index, path, res, current, and last. This is because the calculation sequence, * first, then + and -. When operation is + or -, we simply add or minus new number from current and last is plus or minus new number. When operation is *, new current is current - last + last * new num, and new last is last * new num.  
 
+## Greedy
+
+### 455 Assign Cookies
+Sort g and s. Greedily assign biggest available cookie to biggest child, use two pointers and increment pointers accordingly.  
+
+### 376 Wiggle Subsequence
+Use greedy. Record the previous slope, if the current slope is opposite to previous slope or there is no previous slope, update current slope and increment subsequence count. Note that we need to ignore plains, if nums[i] == nums[i - 1] we simply continue, otherwise it makes the algorithm complicated. This problem is also solvable by DP, but requires 2-D dp, one for index in nums, one for use the current value as maxima or minima. DP is less efficient for this problem.  
+
+### 53 Maximum Subarray
+Use greedy here. Iterate curSum through the nums array. For each step, curSum + nums[i], if result is smaller than 0, reset curSum to 0. Maintain a maxSum variable to record max value of curSum + nums[i] throughout the process. Can also use DP with 2 variables. In each step, DP[1] is max(DP[0] + nums[i], nums[i]). Record global maximum DP[1] throughout the process.  
+
