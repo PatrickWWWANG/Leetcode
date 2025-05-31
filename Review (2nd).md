@@ -321,3 +321,18 @@ Use greedy. Record the previous slope, if the current slope is opposite to previ
 ### 53 Maximum Subarray
 Use greedy here. Iterate curSum through the nums array. For each step, curSum + nums[i], if result is smaller than 0, reset curSum to 0. Maintain a maxSum variable to record max value of curSum + nums[i] throughout the process. Can also use DP with 2 variables. In each step, DP[1] is max(DP[0] + nums[i], nums[i]). Record global maximum DP[1] throughout the process.  
 
+### 122 Best Time to Buy and Sell Stock II
+The greedy solution is: compare each day from day 1 with the previous. If the difference (profit) is positive, collect the profit and we can get the max profit at the end. DP solution will be discussed in DP section.  
+
+### 55 Jump Game
+The greedy solution is: iterate the nums array, calculate the jump range that can be covered by the steps. If the jump range can cover the last index, then return True. We don't need to bother how many steps are we jumping exactly from each point. This can be done within one iteration (O(n)).
+
+### 45 Jump Game II
+The greedy solution is still use range. For this problem, we need two ranges. Current range is the points that we can reach in current step. While iterating current range points, we maintain a next range variable, which is the maximum range we can reach if we take one more step. If the point we are iterating is larger than current range, we increment step counter and set next range to be new current range. If the next range reaches destination, we immediately return step + 1.
+
+### 1005 Maximize Sum Of Array After K Negations
+The greedy solution is: sort the array by absolute value and in reverse order. Iterate the array from start, negate value if k > 0 and value is negative. After iteration, if k still > 0, do nothing if k is even and negate the last value in the array if k is odd. Return the sum.  
+
+### 134 Gas Station
+The greedy solution is: initialize start point at 0, iterate the gas and cost, at each point, calculate the rest fuel = gas - cost. Increment rest fuel to both cursum and total sum. If cursum becomes < 0 at a point, the previous start point is not possible. We reset cursum to 0 and start to iteration index + 1. After finish iteration, if totsum < 0, the loop is not possible, we return -1. Otherwise, the loop must be possible, and since we eliminated all impossible regions, the current value of start must be valid.  
+
