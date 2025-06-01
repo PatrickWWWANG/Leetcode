@@ -336,3 +336,27 @@ The greedy solution is: sort the array by absolute value and in reverse order. I
 ### 134 Gas Station
 The greedy solution is: initialize start point at 0, iterate the gas and cost, at each point, calculate the rest fuel = gas - cost. Increment rest fuel to both cursum and total sum. If cursum becomes < 0 at a point, the previous start point is not possible. We reset cursum to 0 and start to iteration index + 1. After finish iteration, if totsum < 0, the loop is not possible, we return -1. Otherwise, the loop must be possible, and since we eliminated all impossible regions, the current value of start must be valid.  
 
+### 135 Candy
+The greedy solution is: first iterate from left to right and check, then iterate from right to left and check. Key points: (1) Only depend on values that will not be changed in this iteration. So, from left to right, compare current element and current - 1 element; from right to left, compare current element and current + 1 element. (2) When doing second iteration, use a max operation make sure when changing candy value, we only change it when making the larger, keep it the same if the value we want change is smaller than the current value, otherwise we mess up the result of first iteration.  
+
+### 860 Lemonade Change
+Greedy solution: keep track of bills on hand, check all change possibilities, return False if we have number of bills negative.  
+
+### 406 Queue Reconstruction by Height
+Sort the queue with primary key person[0] from high to low, and secondary key person[1] from low to high. Then we use list.insert to create the output list. Insert each person the current output from tallest to shortest, to position person[1]. Since we start from tallest, insert person to position person[1] ensures that there are person[1] people taller or equal to current person in the output. Then, insert shorter person to any position will not change this number.  
+
+### 452 Minimum Number of Arrows to Burst Balloons
+Greedy overlap region problem. Sort the array according to x_end. Iterate the points, if x_start <= current arrow position, current arrow can burst the point, continue. Otherwise, we need one more arrow and position it to x_end to burst as many ballons as possible.  
+
+### 435 Non-overlapping Intervals
+Greedy overlap region problem. Similar to 452. Sort the array according to end position. Delete the current interval if it starts before current end, otherwise update current end.  
+
+### 763 Partition Labels
+(1) Write a find next part subroutine, use str.rfind() method to find the last occurance of characters in s. A part is found when self index equals rfind and equals to maintained end variable for current part. (2) Use a dictionary to store the last index of chracters in s. Simply iterate the enumeration of s, the dictionary automatically updates itself to the last index. Then iterate the enumeration again, update end using numbers from dictionary. A part is found when current index == last index of char and current index == end.  
+
+### 56 Merge Intervals
+Greedy overlap region problem. For this problem, we also need to consider the start point for output, so we can sort useing start as key. Then, we check each interval in intervals, if the start of current interval is smaller than previous end, we combine them by selecting the bigger end as the new end.  
+
+### 738 Monotone Increasing Digits
+Check from right to left. If the current number is smaller than previous number, change current position to the end to 9 and decrement previous number by 1. Make sure to change current position till end, otherwise it may not be the biggest monotone increasing number.  
+
