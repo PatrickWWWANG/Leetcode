@@ -365,3 +365,12 @@ DFS the tree. The dfs returns the state of each node, which can either be have c
 
 ## Dynamic Programming
 
+### 509 Fibonacci Number
+DP array is [fib(n - 2), fib(n - 1)]. Transfer function is: temp = pre fib, pre fib = pre pre fib + temp, pre pre fib = temp. Iterate the transfer function for n - 1 times. Return DP[1].  
+
+### 70 Climbing Stairs
+Distinct ways to stair n equals to distinct ways to stair n - 1 plus distinct ways to stair n - 2. DP array is [stair(n - 2), stair(n - 1)]. Transfer function is: temp = stair(n - 1), stair(n - 1) = stair(n - 2) + temp, stair(n - 2) = temp. Iterate the transfer function for n - 1 times. Return DP[1].  
+
+### 746 Min Cost Climbing Stairs
+Min cost to stair n equals to min between min cost to stair n - 1 plus cost of stair n - 1 and min cost to stair n - 2 plus cost of stair n - 2. DP array is min cost to each stair. Transfer function is to find min cost using costs of previous two stairs and dp number of previous two stairs.  
+
