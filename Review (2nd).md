@@ -360,3 +360,8 @@ Greedy overlap region problem. For this problem, we also need to consider the st
 ### 738 Monotone Increasing Digits
 Check from right to left. If the current number is smaller than previous number, change current position to the end to 9 and decrement previous number by 1. Make sure to change current position till end, otherwise it may not be the biggest monotone increasing number.  
 
+### 968 Binary Tree Cameras
+DFS the tree. The dfs returns the state of each node, which can either be have camera, covered, uncovered. At node, we return 0 because we treat None as covered to minimize number of cameras. If either side is uncovered, we return camera; if either side is camera, we return covered, otherwise we return uncovered. Note that if one side is None, we treat it as a covered side. Also, the sequence of state check can't be switched. Must check uncovered first, then check camera. Because if one side is uncovered and other side is camera, we still need to return camera. Use a nonlocal variable to record number of cameras used. Finally, if the root state is uncovered, we need to add an extra camera at root, then return.  
+
+## Dynamic Programming
+
