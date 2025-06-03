@@ -374,3 +374,15 @@ Distinct ways to stair n equals to distinct ways to stair n - 1 plus distinct wa
 ### 746 Min Cost Climbing Stairs
 Min cost to stair n equals to min between min cost to stair n - 1 plus cost of stair n - 1 and min cost to stair n - 2 plus cost of stair n - 2. DP array is min cost to each stair. Transfer function is to find min cost using costs of previous two stairs and dp number of previous two stairs.  
 
+### 62 Unique Paths
+DP array is m x n, standing for unique paths to each grid. Transfer function is: unique paths to each grid is unique paths to left grid plus unique paths to above grid. Since we only need information from above row, we can use a 2 x n rolling DP array.  
+
+### 63 Unique Paths II
+Similar to 62. DP array is m x n, standing for unique paths to each grid. Transfer function is: unique paths to each grid is unique paths to left grid plus unique paths to above grid. To initialize first row and first column, set dp to 1 moving from start point to right and down. If encounter an obstacle, break the search and keep everything beyond 0 since they are not reachable. In dp iteration, if the grid is obstacle, keep it 0, otherwise do regular dp transfer calculation.  
+
+### 343 Integer Break
+DP is 1-D, standing for max product we can get by breaking i. Transfer function is: for each position dp[i], we iterate a second variable j, from 1 to i//2. At each j, we compare j * (i - j) and j * dp[i - j], where dp[i - j] is max product by breaking (i - j). We record the maximum value we can get when iterating j, and put it to dp[i].  
+
+### 96 Unique Binary Search Trees
+DP is 1-D, standing for unique BSTs for each node number. DP[0] and DP[1] are initialized to 1. Transfer function is: for each node number, we can choose each one of them to be the root of the BST, then, under this condition, the unique BST number is the product of unique left subBST number and unique right subBST number. We iterate different number of nodes in left subBST and right subBST, which are j and i - j - 1. Use DP numbers and calculate the product and add each product to DP[i]. Remember to use product, not sum, in calculation.  
+
