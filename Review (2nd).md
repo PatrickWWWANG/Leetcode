@@ -386,3 +386,6 @@ DP is 1-D, standing for max product we can get by breaking i. Transfer function 
 ### 96 Unique Binary Search Trees
 DP is 1-D, standing for unique BSTs for each node number. DP[0] and DP[1] are initialized to 1. Transfer function is: for each node number, we can choose each one of them to be the root of the BST, then, under this condition, the unique BST number is the product of unique left subBST number and unique right subBST number. We iterate different number of nodes in left subBST and right subBST, which are j and i - j - 1. Use DP numbers and calculate the product and add each product to DP[i]. Remember to use product, not sum, in calculation.  
 
+### 416 Partition Equal Subset Sum
+2-D DP. Size len(nums) * (target + 1). Return False when sum is odd, set target to sum // 2 otherwise. Each DP grid means given first i numbers, and maximum possible target value j, we can reach a maximum value of dp[i][j]. Transfer function is: take the maximum between, not take current number, dp[i - 1][j], and take current number, dp[i - 1][j - nums[i]] + nums[i]. Initialize first column 0, first row 0 when j < nums[0], and nums[0] otherwise. For each row iteration, copy previous row when j < nums[i], and calculate transfer otherwise. Since each iteration only depends on one previous row. We can compress DP to 2-D len(nums) * 2 rolling DP.  
+
