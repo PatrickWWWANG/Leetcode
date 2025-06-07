@@ -403,3 +403,22 @@ Key transfer funtion: **dp[j] += dp[j - nums[i]] for number of different methods
 3-D dp problem, can compress to 2-D dp, with dp[n][m] means max length of subset containing less than n ones and m zeros. Transfer function is take current iterating string or not take it. max(dp[n - num_ones][m - num_zeros] + 1, dp[n][m]). Remember, after compress, both m and n should be iterated in reverse order.  
 
 ### 518 Coin Change II
+Complete knapsack problem, each item can be used infinite times. Count different methods similar to 494, using dp[j] += dp[j - nums[i]]. Because we reuse item multiple times, we iterate target from left to right. In this way, we calculate new value with one item large value with same item small value, hence reuse the item.  
+
+### 377 Combination Sum IV
+Permutation -> Consider order -> Iterate knapsack target first, then item -> Because this order considers each item in each different position.  
+Combination -> Not consider order -> Iterate item first, then knapsack -> Later item always considered in later position.   
+This is a permutation problem, so need to iterate knapsack target first, then item. DP transfer for counting different methods similar to 518 and 494.  
+
+### 70 Climbing Stairs
+Solved before using dp[n] = dp[n - 1] + dp[n - 2]. Can also consider this as a complete knapsack permutation problem. We have nums = [1, 2], and we find number of permutations to reach target, which is n. We iterate knapsack first, then item, for permutation. Similar to 377.  
+
+### 322 Coin Change
+This is a complete knapsack like problem, because we can reuse same coin, so we iterate knapsack from left to right. This problem asks for minimum number of coins, not related to order, so either iteration order is fine. Things to consider: 1. We need to find minimum number of coins, so we initialize dp to float('inf'); 2. dp[0] is 0 in this problem, because 0 coin is needed to reach 0; 3. Transfer function is min(dp[j], dp[j - coins[i]] + 1).  
+
+### 279 Perfect Squares
+This problem is the same as 322, despite we need to create the nums array ourselves using perfect square number with m ** 2 up to n.  
+
+### 139 Word Break
+DFS recursion goes time limit exceeded. 1-D dp is if s[0 : j] can be broken into words in wordDict. DP[0] is initialized to True. We can reuse words, and order matters, so we use complete knapsack and permutation iteration order. Knapsack first, then items, and from left to right. Note the transfer function is dp[i] **or** (i is end position for the item we are looking at **and** dp[i - len(item)]).  
+
