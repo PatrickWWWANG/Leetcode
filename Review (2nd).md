@@ -389,3 +389,17 @@ DP is 1-D, standing for unique BSTs for each node number. DP[0] and DP[1] are in
 ### 416 Partition Equal Subset Sum
 2-D DP. Size len(nums) * (target + 1). Return False when sum is odd, set target to sum // 2 otherwise. Each DP grid means given first i numbers, and maximum possible target value j, we can reach a maximum value of dp[i][j]. Transfer function is: take the maximum between, not take current number, dp[i - 1][j], and take current number, dp[i - 1][j - nums[i]] + nums[i]. Initialize first column 0, first row 0 when j < nums[0], and nums[0] otherwise. For each row iteration, copy previous row when j < nums[i], and calculate transfer otherwise. Since each iteration only depends on one previous row. We can compress DP to 2-D len(nums) * 2 rolling DP.  
 
+### 1049 Last Stone Weight II
+2-D DP. Similar to 416. Target is sum(stones) // 2. Use DP to find the cloest number we can choose to reach target, and that is the cancelled weight. Final output is sum(stones) - 2 * cancelled weight.  
+
+### 494 Target Sum
+Can use brute force dfs, will go time limit exceeded.  
+Typical problem for: Number of different methods filling a knapsack to target. We have left + right = sum; left - right = target. Combining them gives right = (sum - target) / 2. First of all, if (sum - target) % 2 == 1, we return 0 because it's impossible to have solution.  
+If use 2-D dp, be careful: need to count number of zeros up to each nums position and set dp[n][0] to 2^num_zero because there are 2^num_zeros ways to reach zero when there are num_zero zeros.  
+Can use 1-D dp. In 1-D dp, make sure the iteration of target is from right to left because we need previous left numbers to calculate right entries. Make sure dp[nums[0]] += 1 in initialization to include nums[0] == 0 case.  
+Key transfer funtion: **dp[j] += dp[j - nums[i]] for number of different methods knapsack problem**.  
+
+### 474 Ones and Zeroes
+3-D dp problem, can compress to 2-D dp, with dp[n][m] means max length of subset containing less than n ones and m zeros. Transfer function is take current iterating string or not take it. max(dp[n - num_ones][m - num_zeros] + 1, dp[n][m]). Remember, after compress, both m and n should be iterated in reverse order.  
+
+### 518 Coin Change II
