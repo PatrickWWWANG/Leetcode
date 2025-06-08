@@ -422,3 +422,12 @@ This problem is the same as 322, despite we need to create the nums array oursel
 ### 139 Word Break
 DFS recursion goes time limit exceeded. 1-D dp is if s[0 : j] can be broken into words in wordDict. DP[0] is initialized to True. We can reuse words, and order matters, so we use complete knapsack and permutation iteration order. Knapsack first, then items, and from left to right. Note the transfer function is dp[i] **or** (i is end position for the item we are looking at **and** dp[i - len(item)]).  
 
+### 198 House Robber
+1-D DP. DP[i] means max rob value up to position i. Transfer function is max(dp[i - 1], dp[i - 2] + nums[i]), which is max(not rob current, rob current). Initialize DP[0] to nums[0], and DP[1] to max(nums[0], nums[1]) because at most one house can be robbed in two houses.  
+
+### 213 House Robber II
+Since we can't rob first and last house at the same time, we build two new arrays, one is everything except last one, another is everything except first one. We do two DPs for each of them, same as 198. Return the larger result.  
+
+### 337 House Robber III
+Binary Tree DP problem. For binary tree dp, we don't keep a complete dp array or matrix. We do dfs to the tree, and return dp values as the output of dfs function. For this problem, the return is an array [not take current, take current]. Boundry condition is return [0, 0] when root is None. Otherwise, not take current is max(left) + max(right), take current is node.val + left[0] + right[0]. When not taking, we can freely choose the max of left and right, not necessarily take child. When taking, we need to make sure children are not taken.  
+
