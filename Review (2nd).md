@@ -431,3 +431,9 @@ Since we can't rob first and last house at the same time, we build two new array
 ### 337 House Robber III
 Binary Tree DP problem. For binary tree dp, we don't keep a complete dp array or matrix. We do dfs to the tree, and return dp values as the output of dfs function. For this problem, the return is an array [not take current, take current]. Boundry condition is return [0, 0] when root is None. Otherwise, not take current is max(left) + max(right), take current is node.val + left[0] + right[0]. When not taking, we can freely choose the max of left and right, not necessarily take child. When taking, we need to make sure children are not taken.  
 
+### 121 Best Time to Buy and Sell Stock
+DP matrix is 2 * len(prices) matrix. DP[i][0] is max cash of having a share at day i, DP[i][1] is not having a share at day i. Initialize DP[0][0] as -prices[0], simulating buy share at day 0. Transfer function for taking share is max(DP[i - 1][0], -prices[i]), which is max(take share from previous day, buy share today), -prices[i] because we can only buy share one time in total, so always cash 0 when buying. Transfer function for not taking share is max(DP[i - 1][1], DP[i - 1][0] + prices[i]), which is max(cash previous day, stock previous day and sell today). Return DP[len(prices) - 1][1] because always sell to make all cash to output.  
+
+### 122 Best Time to Buy and Sell Stock II
+For this problem, we can buy and sell multiple times, the only restriction is at most 1 stock on hand at a time point. Everything is the same as 121, except transfer function for taking share becomes max(DP[i - 1][0], DP[i - 1][1] - prices[i]). This is because we can use previus trading profit cash to buy share today, the cash on hand when buying is not necessarily 0 now.  
+
