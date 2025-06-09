@@ -437,3 +437,6 @@ DP matrix is 2 * len(prices) matrix. DP[i][0] is max cash of having a share at d
 ### 122 Best Time to Buy and Sell Stock II
 For this problem, we can buy and sell multiple times, the only restriction is at most 1 stock on hand at a time point. Everything is the same as 121, except transfer function for taking share becomes max(DP[i - 1][0], DP[i - 1][1] - prices[i]). This is because we can use previus trading profit cash to buy share today, the cash on hand when buying is not necessarily 0 now.  
 
+### 123 Best Time to Buy and Sell Stock III
+Limit buy and sell at most 2 times. Use 4 * len(prices) DP matrix, which stands for [first stock, first cash, second stock, second cash]. Transfer function can be inferred similar to 122. Note that **stock for both first and second should be initilized to -prices[0] at the first day**. This is similar to buy-sell-buy at the first day. This initialization is important.  
+
