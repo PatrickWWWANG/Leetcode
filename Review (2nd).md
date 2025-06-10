@@ -470,3 +470,12 @@ For the dp version of this problem, dp[i] means maximum subarray that **ends exa
 ### 392 Is Subsequence
 This problem is easy to do with two pointers. For DP version of this problem, we are essentially finding if the length of longest common subsequence equals to the length of s. Then same as 1143.  
 
+### 115 Distinct Subsequences
+2-D DP array. Size (len(s) + 1) * (len(t) + 1). **Initialization is important.** For this problem, we need to initialize the whole first row to 1, representing there is one method to get an empty string from s, which is delete everything. Transfer function is: When s[i - 1] == t[j - 1], we still have every methods we had before, which is dp[i - 1][j], and we can use the new s[i - 1] position character and attach it to each method of t[j - 2], which is dp[i - 1][j - 1]. **So, dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j].** If s[i - 1] != t[j - 1], we keep dp[i - 1][j].  
+
+### 583 Delete Operation for Two Strings
+2-D DP array similar to 115. Initialization is delete every thing from one string if the other string is empty. If s[i - 1] == t[j - 1], no extra operation is required, so dp[i][j] = dp[i - 1][j - 1]. If s[i - 1] != t[j - 1], we need to delete at least one of these positions, so we take min(dp[i - 1][j] + 1, dp[i][j - 1] + 1). Delete both two positions needs two operstions, so it is included in previous two scenarios.  
+
+### 72 Edit Distance
+Almost the same as 583. Since we can replace now, if s[i - 1] != t[j - 1], delete any of them is 1 operation, change one to become the same as another is also 1 operation. So the transfer function when s[i - 1] != t[j - 1] is now min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1), added replace calculation from 583.  
+
