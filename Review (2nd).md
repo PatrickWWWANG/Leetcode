@@ -458,3 +458,15 @@ O(n^2) DP. In first iteration, at each position, do a second iteration up to thi
 ### 718 Maximum Length of Repeated Subarray
 2-D DP array. For each position of nums1, check each position of nums2, if number is the same, dp[i][j] = dp[i - 1][j - 1] + 1. We can use dp array of size (len(nums1) + 1) * (len(nums2) + 1), and iteration in range(1, len(numsx) + 1) and compare nums1[i - 1] amd nums2[j - 1], then we can skip initialization. Otherwise if do array size not plus 1, we need to initialize first row and first column in 2 for loops by setting equal positions to 1. Can compress to 1-D dp array, iterate j from right to left if compress.  
 
+### 1143 Longest Common Subsequence
+2-D DP array. DP matrix and initialization, iteration setup same as 718. DP array means longest common subsequence ends at position i, j. Since LCS doesn't reset when i-1 and j-1 are different, we can simply return dp[-1][-1]. If characters are the same, dp[i][j] = dp[i - 1][j - 1], otherwise, it's max(dp[i - 1][j], dp[i][j - 1]).  
+
+### 1035 Uncrossed Lines
+Same as 1143. Find longest common sequence ensures no cross.  
+
+### 53 Maximum Subarray
+For the dp version of this problem, dp[i] means maximum subarray that **ends exactly at** position i. Therefore, there are only two ways to get dp[i], which are previous sum plus nums[i] or nums[i] itself, and the transfer function is max(dp[i - 1] + nums[i], nums[i]). We need to return the max(dp) because maximum subarray doesn't necessarily ends that last position.  
+
+### 392 Is Subsequence
+This problem is easy to do with two pointers. For DP version of this problem, we are essentially finding if the length of longest common subsequence equals to the length of s. Then same as 1143.  
+
