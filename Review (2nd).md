@@ -440,3 +440,21 @@ For this problem, we can buy and sell multiple times, the only restriction is at
 ### 123 Best Time to Buy and Sell Stock III
 Limit buy and sell at most 2 times. Use 4 * len(prices) DP matrix, which stands for [first stock, first cash, second stock, second cash]. Transfer function can be inferred similar to 122. Note that **stock for both first and second should be initilized to -prices[0] at the first day**. This is similar to buy-sell-buy at the first day. This initialization is important.  
 
+### 188 Best Time to Buy and Sell Stock IV
+Limit buy and sell at most k times. Modify 123 algorithm, use (2 * k) * len(prices) DP matrix. Initialize all buy positions at first day to prices[0]. Transfer functions can be constructed using a for loop except dp[i][0]. Use (-1)^n to control minus or plus prices[i].  
+
+### 309 Best Time to Buy and Sell Stock with Cooldown
+One cooldown day, meaning after sell, can't buy the next day, need to wait for one day. The key is, the transfer function of having stock now replies on cash of 2 days ago, now becomes max(dp[i - 1][0], dp[i - 2][1] - prices[i]). Two methods to initialize: (1) Initialize both day 1 and 2, day 2 initialization is **dp[1][0] = max(-prices[0], -prices[1])**, dp[1][1] = max(0, prices[1] - prices[0]); (2) Use 3 * len(prices) DP matrix, take an extra item to record cash of two days ago, only need to initialize day1 in this method.  
+
+### 714 Best Time to Buy and Sell Stock with Transaction Fee
+Same as 122, only different is to subtract fee when selling stock, include it into the transfer function of dp[i][1].  
+
+### 674 Longest Continuous Increasing Subsequence
+DP using one number. Initialize to 1. Iterate the array, if the item is larger than previous, increment dp variable, otherwise reset to 1. Reocrd the max number ever appeared in dp variable.  
+
+### 300 Longest Increasing Subsequence
+O(n^2) DP. In first iteration, at each position, do a second iteration up to this position. If nums[j] < nums[i], we can do transfer dp[i] = max(dp[i], dp[j] + 1). DP[i] means longest increasing subsequence **ends exactly** at position i. Initialize to 1 because each position has at least itself. Return max(dp) because longest increasing subsequence not necessarily ends at last position.  
+
+### 718 Maximum Length of Repeated Subarray
+2-D DP array. For each position of nums1, check each position of nums2, if number is the same, dp[i][j] = dp[i - 1][j - 1] + 1. We can use dp array of size (len(nums1) + 1) * (len(nums2) + 1), and iteration in range(1, len(numsx) + 1) and compare nums1[i - 1] amd nums2[j - 1], then we can skip initialization. Otherwise if do array size not plus 1, we need to initialize first row and first column in 2 for loops by setting equal positions to 1.  
+
