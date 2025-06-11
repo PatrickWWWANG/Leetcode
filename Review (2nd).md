@@ -485,3 +485,5 @@ Almost the same as 583. Since we can replace now, if s[i - 1] != t[j - 1], delet
 ### 516 Longest Palindromic Subsequence
 Similar to 647. This DP[i][j] means length of longest palindromic subsequence in s[i...j] (inclusive). If s[i] != s[j], dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]) because can't take both ends. If s[i] == s[j], record 1 or 2 when i == j or i + 1 == j, otherwise dp[i][j] = dp[i + 1][j - 1] + 2 because we can put in both start and end together. Iteration order same as 647.  
 
+## Monotone Stack
+
