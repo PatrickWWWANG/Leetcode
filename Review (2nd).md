@@ -479,3 +479,9 @@ This problem is easy to do with two pointers. For DP version of this problem, we
 ### 72 Edit Distance
 Almost the same as 583. Since we can replace now, if s[i - 1] != t[j - 1], delete any of them is 1 operation, change one to become the same as another is also 1 operation. So the transfer function when s[i - 1] != t[j - 1] is now min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + 1), added replace calculation from 583.  
 
+### 647 Palindromic Substrings
+2-D DP array. DP matrix size len(s) * len(s). DP[i][j] is 0 or 1, meaning if s[i...j] (inclusive) is a palindrome. If s[i] != s[j], not palindrome. If s[i] == s[j], when i == j or i + 1 == j, automatically palindrome, otherwise, we look at dp[i + 1][j - 1]. Note that dp[i][j] relies on dp[i + 1][j - 1], so **iteration order i backward and j forward**.  
+
+### 516 Longest Palindromic Subsequence
+Similar to 647. This DP[i][j] means length of longest palindromic subsequence in s[i...j] (inclusive). If s[i] != s[j], dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]) because can't take both ends. If s[i] == s[j], record 1 or 2 when i == j or i + 1 == j, otherwise dp[i][j] = dp[i + 1][j - 1] + 2 because we can put in both start and end together. Iteration order same as 647.  
+
