@@ -493,3 +493,6 @@ Use a monotonic temperature decreasing stack that stores index. When the incomin
 ### 496 Next Greater Element I
 Use an array of size = len(nums2), and a monotonic decreasing stack, to store the next greater element for each element in nums2. Also, maintain a dictionary to map elements to indexes in nums2. Then, simply output the next greater element in nums2 for nums1 elements using the dictionary and the helper array.  
 
+### 503 Next Greater Element II
+Same as 739. Since we have circular integer array in this problem, we simply make nums = nums * 2, and in for loop only update result array when the pop index is in range of length of original nums array.  
+
