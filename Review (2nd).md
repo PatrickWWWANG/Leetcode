@@ -487,3 +487,9 @@ Similar to 647. This DP[i][j] means length of longest palindromic subsequence in
 
 ## Monotone Stack
 
+### 739 Daily Temperatures
+Use a monotonic temperature decreasing stack that stores index. When the incoming index refers to a temperature larger than top of stack, pop the top, use index difference to calculate days to wait, store answer in output array, and push new index to stack. Can finish in one iteration, O(1).  
+
+### 496 Next Greater Element I
+Use an array of size = len(nums2), and a monotonic decreasing stack, to store the next greater element for each element in nums2. Also, maintain a dictionary to map elements to indexes in nums2. Then, simply output the next greater element in nums2 for nums1 elements using the dictionary and the helper array.  
+
