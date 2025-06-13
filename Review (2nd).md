@@ -496,3 +496,11 @@ Use an array of size = len(nums2), and a monotonic decreasing stack, to store th
 ### 503 Next Greater Element II
 Same as 739. Since we have circular integer array in this problem, we simply make nums = nums * 2, and in for loop only update result array when the pop index is in range of length of original nums array.  
 
+### 42 Trapping Rain Water
+Use a monotonic decreasing stack. Incoming larger item is edge for water. Height for pop position is min(right, left), right is incoming i, left is new top of stack. If stack is empty after the pop, the pop position can't hold any rain. Width is right - left - 1.  
+
+### 84 Largest Rectangle in Histogram
+Use a monotonic increasing stack. Incoming smaller item is edge for rectangle. Height is pop index, left and right is stack[-1] and i, if not stack, left is -1. Keep track of maximum area in the for and while loop. Need to append a 0 to heights at begining to make sure all histograms are considered. In 42, rain water can never be at first and last position, but in this problem first and last positions can also form rectangle.  
+
+## Graph
+
