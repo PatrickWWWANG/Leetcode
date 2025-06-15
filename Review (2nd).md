@@ -504,3 +504,7 @@ Use a monotonic increasing stack. Incoming smaller item is edge for rectangle. H
 
 ## Graph
 
+### 797 All Paths From Source to Target
+Find all paths, need to use DFS. Record path when traversal to target, iterate all neighbors and remember to backtrack.
+
+### 200 Number of Islands
