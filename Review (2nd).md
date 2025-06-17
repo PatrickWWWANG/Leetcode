@@ -508,3 +508,5 @@ Use a monotonic increasing stack. Incoming smaller item is edge for rectangle. H
 Find all paths, need to use DFS. Record path when traversal to target, iterate all neighbors and remember to backtrack.
 
 ### 200 Number of Islands
+Iterate the grid, if encountering a '1', increment result count, then dfs or bfs the point to convert all connecting '1' to '0'.  
+
