@@ -510,3 +510,6 @@ Find all paths, need to use DFS. Record path when traversal to target, iterate a
 ### 200 Number of Islands
 Iterate the grid, if encountering a '1', increment result count, then dfs or bfs the point to convert all connecting '1' to '0'.  
 
+### 695 Max Area of Island
+Same as 200, return current area in dfs and bfs functions. BFS is more understandable for this problem. DFS expression when for recursion is area += self.dfs(grid, m_next, n_next).  
+
