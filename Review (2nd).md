@@ -513,3 +513,6 @@ Iterate the grid, if encountering a '1', increment result count, then dfs or bfs
 ### 695 Max Area of Island
 Same as 200, return current area in dfs and bfs functions. BFS is more understandable for this problem. DFS expression when for recursion is area += self.dfs(grid, m_next, n_next).  
 
+### 1254 Number of Closed Islands
+Similar to 200 and 695. Need to return a value in BFS and DFS for this problem. BFS is preferred. Be careful when doing DFS, python short circuits 'and' expression. When closed is False, DFS is never called, causing islands not completely traversed. So we can't write closed = closed and self.dfs(grid, next_m, next_n), have to write seperately.  
+
